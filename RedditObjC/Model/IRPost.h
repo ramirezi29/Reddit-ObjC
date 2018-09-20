@@ -15,10 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly) NSString *title;
 @property (nonatomic, readonly) NSNumber *commentCount;
 @property (nonatomic, readonly) NSNumber *ups;
+@property (nonatomic, readonly, copy) NSString *imageUrl;
 
 //SWIFT: memberwise initilizer
 //This is like our prototcl
--(instancetype)initWithTitle:(NSString *)title commentCount:(NSNumber *)commentCount ups:(NSNumber *)ups;
+-(instancetype)initWithTitle:(NSString *)title commentCount:(NSNumber *)commentCount ups:(NSNumber *)ups imageUrl:(NSString *)imageUrl;
 
 //init for the dictionary
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Sub Reddit Table View Controller-->
         <scene sceneID="aS6-rn-Kbc">
             <objects>
-                <tableViewController id="gtT-Fh-A7D" sceneMemberID="viewController">
+                <tableViewController id="gtT-Fh-A7D" customClass="subRedditTableViewController" customModule="RedditObjC" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Sdg-C8-bsG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,56 +22,63 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="143" id="OvR-0t-H4W">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="143" id="OvR-0t-H4W" customClass="RedditTableViewCell" customModule="RedditObjC" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="143"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OvR-0t-H4W" id="LmL-7c-9v3">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="142.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="94" translatesAutoresizingMaskIntoConstraints="NO" id="UXC-vg-UgL">
-                                            <rect key="frame" x="37.5" y="0.0" width="300" height="142.5"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ipa-Vh-4Vy">
+                                            <rect key="frame" x="5" y="5" width="127" height="132.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="132.5" id="mUY-ho-bSJ"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="nb8-MS-42J">
+                                            <rect key="frame" x="206.5" y="5" width="163.5" height="132.5"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ipa-Vh-4Vy">
-                                                    <rect key="frame" x="0.0" y="0.0" width="142.5" height="142.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="ipa-Vh-4Vy" secondAttribute="height" multiplier="1:1" id="fYf-YM-AFq"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="FAE-bJ-Jz9">
-                                                    <rect key="frame" x="236.5" y="35" width="63.5" height="107.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsN-8G-4sO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="33.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(number of photos)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vao-yF-BDq">
-                                                            <rect key="frame" x="0.0" y="43.5" width="63.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NumberOfComments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uuw-i5-xIp">
-                                                            <rect key="frame" x="0.0" y="87" width="63.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsN-8G-4sO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="163.5" height="56.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(number of photos)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vao-yF-BDq">
+                                                    <rect key="frame" x="0.0" y="82.5" width="163.5" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NumberOfComments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uuw-i5-xIp">
+                                                    <rect key="frame" x="0.0" y="120.5" width="163.5" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="MsN-8G-4sO" secondAttribute="bottom" constant="76" id="3bc-Mi-339"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="UXC-vg-UgL" firstAttribute="centerY" secondItem="LmL-7c-9v3" secondAttribute="centerY" id="577-6Z-Tvw"/>
-                                        <constraint firstItem="ipa-Vh-4Vy" firstAttribute="centerY" secondItem="LmL-7c-9v3" secondAttribute="centerY" id="JkW-a4-sM9"/>
-                                        <constraint firstItem="UXC-vg-UgL" firstAttribute="centerX" secondItem="LmL-7c-9v3" secondAttribute="centerX" id="fKV-qK-gD8"/>
-                                        <constraint firstItem="UXC-vg-UgL" firstAttribute="height" secondItem="LmL-7c-9v3" secondAttribute="height" id="rJi-QH-wid"/>
-                                        <constraint firstItem="UXC-vg-UgL" firstAttribute="width" secondItem="LmL-7c-9v3" secondAttribute="width" multiplier="0.8" id="viN-Qf-AXR"/>
+                                        <constraint firstItem="ipa-Vh-4Vy" firstAttribute="leading" secondItem="LmL-7c-9v3" secondAttribute="leading" constant="5" id="4HX-Dd-ws0"/>
+                                        <constraint firstItem="nb8-MS-42J" firstAttribute="top" secondItem="LmL-7c-9v3" secondAttribute="top" constant="5" id="XtD-vg-Ixr"/>
+                                        <constraint firstAttribute="bottom" secondItem="nb8-MS-42J" secondAttribute="bottom" constant="5" id="aVb-R4-gkP"/>
+                                        <constraint firstAttribute="trailing" secondItem="ipa-Vh-4Vy" secondAttribute="trailing" constant="243" id="bov-wZ-Zc5"/>
+                                        <constraint firstAttribute="trailing" secondItem="nb8-MS-42J" secondAttribute="trailing" constant="5" id="chV-mE-Ubh"/>
+                                        <constraint firstItem="nb8-MS-42J" firstAttribute="leading" secondItem="LmL-7c-9v3" secondAttribute="leading" constant="206.5" id="ci7-Gp-8sM"/>
+                                        <constraint firstAttribute="bottom" secondItem="ipa-Vh-4Vy" secondAttribute="bottom" constant="5" id="rKR-XC-s6Q"/>
+                                        <constraint firstItem="ipa-Vh-4Vy" firstAttribute="top" secondItem="LmL-7c-9v3" secondAttribute="top" constant="5" id="t5i-il-HHv"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="CommentCountLabel" destination="Uuw-i5-xIp" id="Ye5-uv-kYV"/>
+                                    <outlet property="postImageView" destination="ipa-Vh-4Vy" id="U08-ed-y7c"/>
+                                    <outlet property="titleLabel" destination="MsN-8G-4sO" id="pS2-jh-qQ6"/>
+                                    <outlet property="upsLabel" destination="Vao-yF-BDq" id="oqn-mP-zVH"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -79,10 +86,13 @@
                             <outlet property="delegate" destination="gtT-Fh-A7D" id="Fv5-jN-MTk"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="redditSearchBar" destination="RAf-90-5rP" id="VtR-0b-5Fk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pTH-Zc-d7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-380" y="62.518740629685162"/>
+            <point key="canvasLocation" x="-372" y="57.121439280359823"/>
         </scene>
     </scenes>
 </document>
